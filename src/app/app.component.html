@@ -1,0 +1,14 @@
+<h1>login form</h1>
+<form  #simpleForm="ngForm" (ngSubmit)="getval(simpleForm.value)">
+<input type="text" required #name="ngModel" ngModel  name="fname" placeholder="Enter your name"  /><br><br>
+   <small style="color:red ;" *ngIf="name.invalid && name.touched">please enter valid name</small><br><br>
+
+<input type="text" required #lname="ngModel" ngModel name="lastname" placeholder="Enter your lastname"  /><br><br>
+   <small style="color:red ;" *ngIf="lname.invalid && lname.touched">please enter valid lastname</small><br><br>
+
+<input type="tel" required #age="ngModel" ngModel name="age" placeholder="Enter your age" onkeypress="return /[0-9 ]/i.test(event.key)"  /><br><br>
+   <small style="color:red ;" *ngIf="age.invalid && age.touched">please enter valid number</small><br><br> 
+<button style="background-color: red; color:black " [disabled]="simpleForm.invalid" >submit</button>
+</form>
+<h1>SIgn-up Form</h1>
+<app-reactive-form></app-reactive-form>

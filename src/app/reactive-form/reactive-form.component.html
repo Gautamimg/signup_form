@@ -1,0 +1,37 @@
+<div class="container">
+    <form [formGroup]="loginform" (ngSubmit)="Usersubmit()"  >
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" formControlName="firstname" placeholder="Your name.." onkeypress="return /[A-Za-z ]/i.test(event.key)">
+      <!-- <small style="color:red ;" *ngIf="firstname.invalid && firstname.touched">please enter valid name</small><br><br>  -->
+      <small style="color:red ;" *ngIf="  !loginform.get('firstname')?.valid && submitForm">please enter valid First name</small><br><br> 
+      
+      <label for="">Last Name</label>
+      <input type="text" id="lname" formControlName="lastname" placeholder="Your last name.." onkeypress="return /[A-Za-z ]/i.test(event.key)" >
+      <small style="color:red ;" *ngIf="  !loginform.get('lastname')?.valid && submitForm">please enter valid Last name</small><br><br> 
+      
+      <label for="">Mobile Number </label>
+      <input type="tel"  maxlength="10"  formControlName="number" placeholder="Your Mobile Number.." onkeypress="return /[0-9 ]/i.test(event.key)">
+      <!-- <small style="color:red ;" *ngIf="  number.invalid && number.touched">please enter valid number</small><br><br>  -->
+      <small style="color:red ;" *ngIf="  !loginform.get('number')?.valid && submitForm">please enter valid number</small><br><br> 
+      
+      <label for="country">Country</label>
+      <select id="country" formControlName="country">
+        <option value="India">India</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+      </select>
+      <!-- <small style="color:red ;" *ngIf="  country.invalid && country.touched">please select Country</small><br><br>  -->
+      <small style="color:red ;" *ngIf="  !loginform.get('country')?.valid && submitForm">please select</small><br><br> 
+      
+      <label for="subject">Subject</label>
+      <textarea id="subject" formControlName="subject" placeholder="Write something.." style="height:200px"></textarea>
+      <small style="color:red ;" *ngIf=" !loginform.get('subject')?.valid && submitForm">please enter something</small><br><br> 
+      
+      <button type="submit" >submit</button>
+    </form>
+  </div>
+  
+  <div  >
+    {{name}}
+    {{name1}}
+  </div>
